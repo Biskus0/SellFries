@@ -1,0 +1,16 @@
+local UserInputService = game:GetService("UserInputService")
+local isMobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled
+
+local isSuccess = loadstring(game:HttpGet("https://raw.githubusercontent.com/Biskus0/SellFries/refs/heads/main/Loader.lua"))()
+
+if isSuccess == true then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Biskus0/UIConstructor/refs/heads/main/AnonymousTelemetry.lua"))()
+    if not isMobile then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Biskus0/UIConstructor/refs/heads/main/PC.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Biskus0/SellFries/refs/heads/main/PC%20Script.lua", true))()
+    else
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Biskus0/UIConstructor/refs/heads/main/Mobile.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Biskus0/SellFries/refs/heads/main/Mobile%20Script.lua", true))()
+    end
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Biskus0/SellFries/refs/heads/main/Key.lua", true))()
+end
